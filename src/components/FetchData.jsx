@@ -20,7 +20,7 @@ const FetchData = () => {
     }, [])
 
     return (
-        <div>
+        <>
             {Object.entries(data).map((item) => {
                 return (
                     <ProductList
@@ -34,7 +34,7 @@ const FetchData = () => {
                     />
                 )
             })}
-        </div>
+        </>
     )
 }
 
