@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 
-import FetchData from "./components/FetchData";
+// import FetchData from "./components/FetchData";
 import Layout from "./components/Layout";
 import StartPage from "./pages/StartPage";
 import DetailedPage from "./pages/DetailedPage";
