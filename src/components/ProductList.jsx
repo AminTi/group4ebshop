@@ -27,22 +27,20 @@ const ProductList = ({ name, description, price, rating, stock, images }) => {
     }
 
     return (
-        <div className="test">
-            <div className="items-wrapper">
-                <div classNAme="Image-Container">
-                    <img
-                        src={images[0].src.small}
-                        alt={images[0].alt}
-                        className="Image"
-                    />
-                </div>
-
-                <span>{name}</span>
-                <span>{price}</span>
-                <span>{stock}</span>
-                {display()}
-                {hide()}
+        <div className="items-wrapper">
+            <div className="Image-Container">
+                <img
+                    src={images[0].src.small}
+                    alt={images[0].alt}
+                    className="Image"
+                />
             </div>
+
+            <span>{name}</span>
+            <span>{price}</span>
+            <span>{stock}</span>
+            {display()}
+            {hide()}
         </div>
     )
 }
