@@ -1,8 +1,11 @@
-// import React from "react"
+import React from "react"
 
-// export const BuyButton = () => {
-//     return (
-//         <>
-//             <button>Buy</button>
-//         </>
-//     )
+const BuyButton = () => {
+    return (
+        <>
+            <button className="buyBtn"> Buy </button>
+        </>
+    )
+}
+
+export default BuyButton

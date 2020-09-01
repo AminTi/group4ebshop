@@ -54,3 +54,13 @@ body {
 .text {
   grid-area: text;
 }
+
+
+.buyBtn {
+  grid-area: ShowBtn;
+}
+
+.ShowhideBtn {
+  grid-area: buybtn;
+
+}

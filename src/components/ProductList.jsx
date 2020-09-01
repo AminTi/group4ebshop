@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react"
-import { BuyButton } from "./BuyButton"
+import BuyButton from "./BuyButton"
 
 const ProductList = ({ name, description, price, rating, stock, images }) => {
     const [showHide, setShowHide] = useState(false)
@@ -31,12 +31,13 @@ const ProductList = ({ name, description, price, rating, stock, images }) => {
             <span>{price} -:</span>
             <span> Stock {stock}</span>
             <div className="btn-container">
-                <p
-                    ref={paragraf}
-                    style={{ border: styles }}
-                    className="text"></p>
-                <button onClick={display}> Read More </button>
-                <button> Buy</button>
+                <p ref={paragraf} style={{ border: styles }} className="text">
+                    {" "}
+                </p>
+                <button onClick={display} className="ShowhideBtn">
+                    Read More
+                </button>
+                <BuyButton />
             </div>
         </div>
     )
