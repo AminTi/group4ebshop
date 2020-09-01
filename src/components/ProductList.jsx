@@ -1,28 +1,20 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
+import { BuyButton } from "./BuyButton"
 
 const ProductList = ({ name, description, price, rating, stock, images }) => {
     const [showHide, setShowHide] = useState(false)
+    const paragraf = useRef(true)
+    const [styles, setStyles] = useState()
 
-    const display = () => {
+    function display(e) {
         if (showHide) {
-            return (
-                <div>
-                    {description}
-                    {rating}
-                </div>
-            )
-        } else {
-            return ""
-        }
-    }
+            paragraf.current.innerText = `${description}`
 
-    const hide = () => {
-        if (showHide == false) {
-            return <button onClick={() => setShowHide(true)}>Read More</button>
+            setShowHide(false)
         } else {
-            return (
-                <button onClick={() => setShowHide(false)}>Hide details</button>
-            )
+            setStyles("none")
+            paragraf.current.innerText = ""
+            setShowHide(true)
         }
     }
 
@@ -35,12 +27,17 @@ const ProductList = ({ name, description, price, rating, stock, images }) => {
                     className="Image"
                 />
             </div>
-
             <span>{name}</span>
-            <span>{price}</span>
-            <span>{stock}</span>
-            {display()}
-            {hide()}
+            <span>{price} -:</span>
+            <span> Stock {stock}</span>
+            <div className="btn-container">
+                <p
+                    ref={paragraf}
+                    style={{ border: styles }}
+                    className="text"></p>
+                <button onClick={display}> Read More </button>
+                <button> Buy</button>
+            </div>
         </div>
     )
 }
