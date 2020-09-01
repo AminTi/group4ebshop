@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
+import ProductList from "./ProductList"
 
 const FetchData = () => {
-    const [data, setData] = useState()
+    const [data, setData] = useState([])
 
     const DataHandler = () => {
         axios
@@ -18,9 +19,23 @@ const FetchData = () => {
         DataHandler()
     }, [])
 
-    console.log(data)
-
-    return <div>{data && Object.entries(data).map}</div>
+    return (
+        <div>
+            {Object.entries(data).map((item) => {
+                return (
+                    <ProductList
+                        key={item[0]}
+                        description={item[1].description}
+                        name={item[1].name}
+                        price={item[1].price}
+                        rating={item[1].rating}
+                        stock={item[1].stock}
+                        images={item[1].images}
+                    />
+                )
+            })}
+        </div>
+    )
 }
 
 export default FetchData
