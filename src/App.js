@@ -11,9 +11,8 @@ import CheckoutPage from "./pages/CheckoutPage";
 function App() {
   return (
     <div>
-      <FetchData />
       <Switch>
-        <Route
+        {/*<Route
           path="/product/:id"
           render={(props) => {
             return (
@@ -22,7 +21,7 @@ function App() {
               </Layout>
             );
           }}
-        ></Route>
+        ></Route>*/}
         <Route path="/cart">
           <CartPage />
         </Route>
