@@ -9,6 +9,7 @@ import CartPage from "./pages/CartPage"
 import CheckoutPage from "./pages/CheckoutPage"
 
 function App() {
+<<<<<<< HEAD
     return (
         <div classNAme="app">
             <StartPage />
@@ -38,6 +39,33 @@ function App() {
             </Switch>
         </div>
     )
+=======
+  return (
+    <div>
+      <Switch>
+        {/*<Route
+          path="/product/:id"
+          render={(props) => {
+            return (
+              <Layout>
+                <DetailedPage {...props} />
+              </Layout>
+            );
+          }}
+        ></Route>*/}
+        <Route path="/cart">
+          <CartPage />
+        </Route>
+        <Route path="/checkout">
+          <CheckoutPage />
+        </Route>
+        <Route path="/">
+          <StartPage />
+        </Route>
+      </Switch>
+    </div>
+  );
+>>>>>>> b7c748d0089ed4bba57ed1c78f2db859b3aeaca8
 }
 
 export default App
