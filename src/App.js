@@ -26,14 +26,10 @@ function App() {
           <CartPage />
         </Route>
         <Route path="/checkout">
-          <Layout>
-            <CheckoutPage />
-          </Layout>
+          <CheckoutPage />
         </Route>
         <Route path="/">
-          <Layout>
-            <StartPage />
-          </Layout>
+          <StartPage />
         </Route>
       </Switch>
     </div>
