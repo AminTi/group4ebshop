@@ -1,5 +1,5 @@
 import React from "react";
-import ProductCart from "../components/ProductCart";
+import Cart from "../components/Cart";
 
 export default function CartPage() {
   return (
@@ -8,7 +8,7 @@ export default function CartPage() {
       <table>
         {/*Här bör vi mappa igenom arrayen där vi lagt till produkter
         och skapa en ProductCart för varje produkt*/}
-        <ProductCart />
+        <Cart />
       </table>
       <button>Go to checkout</button>
     </div>
