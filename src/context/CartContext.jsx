@@ -23,7 +23,6 @@ const CartContextProvider = ({ children }) => {
       .reduce((total, product) => total + product.price * product.quantity, 0)
       .toFixed(2);
     setTotalSum(total);
-    // return { itemCount, total };
   };
 
   const gettingDataFromStorage = () => {
@@ -35,11 +34,9 @@ const CartContextProvider = ({ children }) => {
 
   useEffect(() => {
     gettingDataFromStorage();
-    // sumItems(cartItems);
   }, []);
 
   useEffect(() => {
-    // gettingDataFromStorage();
     sumItems(cartItems);
   }, [totalSum, itemCount, cartItems]);
 
@@ -90,7 +87,5 @@ const CartContextProvider = ({ children }) => {
 };
 
 export default CartContextProvider;
-
-// const clearCart = () => {};
 
 // const handleCheckout = () => {};

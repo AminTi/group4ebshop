@@ -1,6 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { CartContext } from "../context/CartContext";
-import BuyButton from "./BuyButton";
 
 const ProductList = ({
   name,
