@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import BuyButton from "./BuyButton";
 
 const ProductList = ({
   name,
@@ -14,23 +15,24 @@ const ProductList = ({
   const cartProduct = { name, price, image, id };
   const [showHide, setShowHide] = useState(false);
   const { addProduct, cartItems, increase } = useContext(CartContext);
+  const paragraf = useRef(true);
+  const [styles, setStyles] = useState();
 
   const isInCart = (product) => {
     return cartItems.some((item) => item.id === product.id);
   };
 
-  const display = () => {
+  function display(e) {
     if (showHide) {
-      return (
-        <div>
-          {description}
-          {rating}
-        </div>
-      );
+      paragraf.current.innerText = `${description}`;
+
+      setShowHide(false);
     } else {
-      return "";
+      setStyles("none");
+      paragraf.current.innerText = "";
+      setShowHide(true);
     }
-  };
+  }
 
   const hide = () => {
     if (showHide == false) {
@@ -39,25 +41,43 @@ const ProductList = ({
       return <button onClick={() => setShowHide(false)}>Hide details</button>;
     }
   };
-
   return (
     <div className="items-wrapper">
       <div className="Image-Container">
         <img src={images[0].src.small} alt={images[0].alt} className="Image" />
       </div>
-
       <span>{name}</span>
-      <span>{price}</span>
-      <span>{stock}</span>
-      {!isInCart(cartProduct) ? (
-        <button onClick={() => addProduct(cartProduct)}>Add to Cart</button>
-      ) : (
-        <button onClick={() => increase(cartProduct)}>Add More</button>
-      )}
-      {display()}
-      {hide()}
+      <span>{price} -:</span>
+      <span> Stock {stock}</span>
+      <div className="btn-container">
+        <p ref={paragraf} style={{ border: styles }} className="text">
+          {" "}
+        </p>
+        <button onClick={display} className="ShowhideBtn">
+          Read More
+        </button>
+        {!isInCart(cartProduct) ? (
+          <button onClick={() => addProduct(cartProduct)}>Add to Cart</button>
+        ) : (
+          <button onClick={() => increase(cartProduct)}>Add More</button>
+        )}
+      </div>
     </div>
   );
 };
+//   return (
+//     <div className="items-wrapper">
+//       <div className="Image-Container">
+//         <img src={images[0].src.small} alt={images[0].alt} className="Image" />
+//       </div>
+
+//       <span>{name}</span>
+//       <span>{price}</span>
+//       <span>{stock}</span>
+//       {display()}
+//       {hide()}
+//       <Link to={`/product/${id}`} id={id}>Detailed Page</Link>
+//     </div>
+//   );
 
 export default ProductList;
