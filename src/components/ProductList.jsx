@@ -1,5 +1,6 @@
 import React, { useState, useContext, useRef } from "react";
 import { CartContext } from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 const ProductList = ({
   name,
@@ -60,6 +61,7 @@ const ProductList = ({
         ) : (
           <button onClick={() => increase(cartProduct)}>Add More</button>
         )}
+        <Link to={`/product/${id}`}>Described Product</Link>
       </div>
     </div>
   );
