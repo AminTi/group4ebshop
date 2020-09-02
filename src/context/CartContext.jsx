@@ -75,6 +75,10 @@ const CartContextProvider = ({ children }) => {
         setCartItems(newCartItem)
     }
 
+    const isInCart = (product, cartItems) => {
+        return cartItems.some((item) => item.id === product.id)
+    }
+
     const contextValues = {
         cartItems,
         totalSum,
@@ -84,6 +88,7 @@ const CartContextProvider = ({ children }) => {
         decrease,
         removeProduct,
         clearCart,
+        isInCart,
     }
 
     return (

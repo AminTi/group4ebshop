@@ -14,13 +14,11 @@ const ProductList = ({
     const image = images[0].src.small
     const cartProduct = { name, price, image, id }
     const [showHide, setShowHide] = useState(false)
-    const { addProduct, cartItems, increase } = useContext(CartContext)
+    const { addProduct, cartItems, increase, isInCart } = useContext(
+        CartContext
+    )
     const paragraf = useRef(true)
     const [styles, setStyles] = useState()
-
-    const isInCart = (product) => {
-        return cartItems.some((item) => item.id === product.id)
-    }
 
     function display(e) {
         if (showHide) {
@@ -67,7 +65,7 @@ const ProductList = ({
                     <Link to={`/product/${id}`}>Described Product</Link>
                 </button>
 
-                {!isInCart(cartProduct) ? (
+                {!isInCart(cartProduct, cartItems) ? (
                     <button onClick={() => addProduct(cartProduct)}>
                         Add to Cart
                     </button>
@@ -80,5 +78,25 @@ const ProductList = ({
         </div>
     )
 }
+
+//   return (
+//     <div className="items-wrapper">
+//       <div className="Image-Container">
+//         <img src={images[0].src.small} alt={images[0].alt} className="Image" />
+//       </div>
+
+//                 {!isInCart(cartProduct) ? (
+//                     <button onClick={() => addProduct(cartProduct)}>
+//                         Add to Cart
+//                     </button>
+//                 ) : (
+//                     <button onClick={() => increase(cartProduct)}>
+//                         Add More
+//                     </button>
+//                 )}
+//             </div>
+//         </div>
+//     )
+// }
 
 export default ProductList
