@@ -5,7 +5,7 @@ import ProductDetailed from "./ProductDetailed"
 // import ProductDetailed from "./ProductDetailed";
 
 const FetchDataDescribed = ({ productId }) => {
-    const [data, setData] = useState({})
+    const [data, setData] = useState(null)
 
     const DataHandler = () => {
         axios
@@ -21,9 +21,11 @@ const FetchDataDescribed = ({ productId }) => {
         DataHandler()
     }, [])
 
+
+
     return (
         <>
-            <ProductDetailed data={data} />
+        {data && <ProductDetailed data={data} />}
         </>
     )
 }
