@@ -24,15 +24,24 @@ const FetchReviews = ({ productId }) => {
     DataHandler();
   }, []);
 
+  console.log(data);
+
 
   return (
     <>
-      <hr></hr>
+      <h1 className="card-header">Reviews</h1>
       {Object.entries(data).map((item, index) => (
-        <div key={index}>
-          <h1>Reviews</h1>
-          <h2>{item[1].title}</h2>
-          <p>{item[1].description}</p>
+        <div key={index} className="card-body">
+          <div className="card">
+            <h2 className="card-header">{item[1].title}</h2>
+            <div className="card-body">
+              <p>{item[1].description}</p>
+              <footer className="blockquote-footer">{item[1].author.name} {item[1].date}</footer>
+            </div>
+            
+          </div>
+         
+          
         </div>
       ))}
     </>

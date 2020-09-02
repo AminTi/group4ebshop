@@ -39,8 +39,8 @@ const ProductList = ({
   };
 
   return (
-    <div className="col-md-3">
-      <div className="items-wrapper card mb-4">
+    <div className="col-md-3" style={{marginTop:70}}>
+      <div className="items-wrapper card">
         {/* <div className="Image-Container"> */}
         <img
           src={images[0].src.small}
@@ -62,9 +62,9 @@ const ProductList = ({
           {/* <button onClick={display} className="ShowhideBtn">
             Read More
           </button> */}
-          <button className="btn btn-outline-primary btn-sm mr-2">
-            <Link to={`/product/${id}`}>Info</Link>
-          </button>
+          
+            <Link to={`/product/${id}`}><button className="btn btn-outline-primary btn-sm mr-2">Info</button></Link>
+          
 
           {!isInCart(cartProduct, cartItems) ? (
             <button
