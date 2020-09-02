@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { FiShoppingCart } from "react-icons/fi";
 export default function Layout({ children }) {
   return (
     <div>
@@ -9,7 +9,7 @@ export default function Layout({ children }) {
           Home
         </Link>
         <Link className="header-cart link" to="/cart">
-          Cart
+          <FiShoppingCart />
         </Link>
       </header>
       {children}
