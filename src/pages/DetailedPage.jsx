@@ -9,9 +9,7 @@ export default function DetailedPage(props) {
 
   return (
     <div>
-      <h1>Detailed Page</h1>
       <FetchDataDescribed productId={productId}/>
-      
     </div>
   );
 }

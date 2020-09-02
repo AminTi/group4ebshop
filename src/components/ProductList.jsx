@@ -53,15 +53,17 @@ const ProductList = ({
         <p ref={paragraf} style={{ border: styles }} className="text">
           {" "}
         </p>
-        <button onClick={display} className="ShowhideBtn">
+        {/* <button onClick={display} className="ShowhideBtn">
           Read More
-        </button>
+        </button> */}
+        <button><Link to={`/product/${id}`}>Described Product</Link></button>
+        
         {!isInCart(cartProduct) ? (
           <button onClick={() => addProduct(cartProduct)}>Add to Cart</button>
         ) : (
           <button onClick={() => increase(cartProduct)}>Add More</button>
         )}
-        <Link to={`/product/${id}`}>Described Product</Link>
+        
       </div>
     </div>
   );

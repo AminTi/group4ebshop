@@ -11,7 +11,9 @@ function ProductDetailed({ data }) {
       <img src={src} />
 
       {/* <image src={data.images} /> */}
-      <h2>{data.price}</h2>
+      <h2>{data.price} kr</h2>
+      <p>{data.stock} in stock</p>
+      <h3>{data.description}</h3>
     </div>
   );
 }
