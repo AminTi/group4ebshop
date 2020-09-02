@@ -20,7 +20,7 @@ const FetchData = () => {
   }, []);
 
   return (
-    <div className="main-container">
+    <div className="main-container row">
       {Object.entries(data).map((item) => {
         return (
           <ProductList

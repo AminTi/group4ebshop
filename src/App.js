@@ -8,10 +8,11 @@ import StartPage from "./pages/StartPage"
 import DetailedPage from "./pages/DetailedPage"
 import CartPage from "./pages/CartPage"
 import CheckoutPage from "./pages/CheckoutPage"
+import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
     return (
-        <div className="app">
+        <div className="container">
             <Switch>
                 <Route
                     path="/product/:id"
