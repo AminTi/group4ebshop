@@ -1,44 +1,47 @@
-import React, { useState, useContext, useRef } from "react";
-import { CartContext } from "../context/CartContext";
-import { Link } from "react-router-dom";
+import React, { useState, useContext, useRef } from "react"
+import { CartContext } from "../context/CartContext"
+import { Link } from "react-router-dom"
 
 const ProductList = ({
-  name,
-  description,
-  price,
-  rating,
-  stock,
-  images,
-  id,
+    name,
+    description,
+    price,
+    rating,
+    stock,
+    images,
+    id,
 }) => {
-  const image = images[0].src.small;
-  const cartProduct = { name, price, image, id };
-  const [showHide, setShowHide] = useState(false);
-  const { addProduct, cartItems, increase } = useContext(CartContext);
-  const paragraf = useRef(true);
-  const [styles, setStyles] = useState();
+    const image = images[0].src.small
+    const cartProduct = { name, price, image, id }
+    const [showHide, setShowHide] = useState(false)
+    const { addProduct, cartItems, increase } = useContext(CartContext)
+    const paragraf = useRef(true)
+    const [styles, setStyles] = useState()
 
-  const isInCart = (product) => {
-    return cartItems.some((item) => item.id === product.id);
-  };
-
-  function display(e) {
-    if (showHide) {
-      paragraf.current.innerText = `${description}`;
-
-      setShowHide(false);
-    } else {
-      setStyles("none");
-      paragraf.current.innerText = "";
-      setShowHide(true);
+    const isInCart = (product) => {
+        return cartItems.some((item) => item.id === product.id)
     }
-  }
 
-  const hide = () => {
-    if (showHide == false) {
-      return <button onClick={() => setShowHide(true)}>Read More</button>;
-    } else {
-      return <button onClick={() => setShowHide(false)}>Hide details</button>;
+    function display(e) {
+        if (showHide) {
+            paragraf.current.innerText = `${description}`
+
+            setShowHide(false)
+        } else {
+            setStyles("none")
+            paragraf.current.innerText = ""
+            setShowHide(true)
+        }
+    }
+
+    const hide = () => {
+        if (showHide == false) {
+            return <button onClick={() => setShowHide(true)}>Read More</button>
+        } else {
+            return (
+                <button onClick={() => setShowHide(false)}>Hide details</button>
+            )
+        }
     }
   };
   return (
@@ -83,4 +86,4 @@ const ProductList = ({
 //     </div>
 //   );
 
-export default ProductList;
+export default ProductList
