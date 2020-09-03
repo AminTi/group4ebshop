@@ -69,7 +69,6 @@ function CheckoutPage() {
             <input type="text" ref={apiKey} style={{ border: styles }} />
             {ErrorCheck() && <span> Discout applied </span>}
             <button onClick={discountValues} style={{ border: styles }}>
-                {" "}
                 Check
             </button>
         </>
