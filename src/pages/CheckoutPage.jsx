@@ -10,7 +10,6 @@ function CheckoutPage() {
   const [discountCupon, setDescount] = useState({});
   const [inputValue, setinputValue] = useState();
   const apiKey = useRef();
-  //const [styles, setStyles] = useState();
 
   const descountApi = `https://mock-data-api.firebaseio.com/e-commerce/couponCodes/${inputValue}.json`;
 
