@@ -38,33 +38,31 @@ const ProductList = ({
     }
   };
 
+  const descriptionShort = description.toString().substring(0, 20);
+
   return (
-    <div className="col-md-3" style={{marginTop:70}}>
-      <div className="items-wrapper card">
-        {/* <div className="Image-Container"> */}
+    <div
+      className="col-md-3 d-flex align-items-stretch"
+      style={{ marginTop: 70 }}
+    >
+      <div className="items-wrapper card" style={{}}>
         <img
           src={images[0].src.small}
           alt={images[0].alt}
           className="Image card-img-top"
-          style={{maxHeight:170, minHeight:170, objectFit:"cover"}}
+          style={{ maxHeight: 170, minHeight: 170, objectFit: "cover" }}
         />
-        {/* </div> */}
-        {/* <span>{name}</span>
-            <span>{price} -:</span>
-            <span> Stock {stock}</span> */}
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
-          <p className="card-title">{price} -:</p>
-          <p className="card-title"> Stock {stock}</p>
-          {/* <p ref={paragraf} style={{ border: styles }} className="text">
-                    {" "}
-                </p> */}
-          {/* <button onClick={display} className="ShowhideBtn">
-            Read More
-          </button> */}
-          
-            <Link to={`/product/${id}`}><button className="btn btn-outline-primary btn-sm mr-2">Info</button></Link>
-          
+          <p className="card-text">{price} :-</p>
+          <p className="card-text">{descriptionShort}...</p>
+        </div>
+        <div className="card-footer">
+          <Link to={`/product/${id}`}>
+            <button className="btn btn-outline-primary btn-sm mr-2">
+              Info
+            </button>
+          </Link>
 
           {!isInCart(cartProduct, cartItems) ? (
             <button
@@ -82,8 +80,6 @@ const ProductList = ({
             </button>
           )}
         </div>
-
-        <div className="btn-container"></div>
       </div>
     </div>
   );
