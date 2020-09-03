@@ -1,0 +1,16 @@
+.cartpage {
+  height: 90%;
+  width: 300px;
+  position: fixed;
+  z-index: 1;
+  top: 56px; /* Under navbar */
+  right: 0;
+  background-color: lightgrey;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding: 10px;
+  transition: 0.9s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.cart-qty-change {
+  margin-bottom: 10px;
+}

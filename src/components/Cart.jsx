@@ -17,18 +17,18 @@ export default function Cart({ product }) {
         <h5 className="cart-name">{product.name}</h5>
         <p className="cart-price">Price: {product.price} </p>
       </div>
-      <div className="cart-quntity">
+      <div className="cart-qty">
         <p>Qty: {product.quantity}</p>
       </div>
-      <div className="cart-quntity-increase">
-        <button onClick={() => increase(product)}>
+      <div className="cart-qty-change">
+        <button onClick={() => increase(product)} className="cart-qty-increase">
           <BiPlusCircle />
         </button>
 
         {product.quantity > 1 && (
           <button
             onClick={() => decrease(product)}
-            className="cart-quntity-decrease"
+            className="cart-qty-decrease"
           >
             <BiMinusCircle />
           </button>
@@ -37,7 +37,7 @@ export default function Cart({ product }) {
         {product.quantity === 1 && (
           <button
             onClick={() => removeProduct(product)}
-            className="cart-quntity-remove"
+            className="cart-qty-remove"
           >
             <BiTrash />
           </button>

@@ -42,10 +42,13 @@ const ProductList = ({
         }
     }
 
+    const descriptionShort = description.toString().substring(0, 20)
+
     return (
-        <div className="col-md-3" style={{ marginTop: 70 }}>
-            <div className="items-wrapper card">
-                {/* <div className="Image-Container"> */}
+        <div
+            className="col-md-3 d-flex align-items-stretch"
+            style={{ marginTop: 70 }}>
+            <div className="items-wrapper card" style={{}}>
                 <img
                     src={images[0].src.small}
                     alt={images[0].alt}
@@ -56,12 +59,12 @@ const ProductList = ({
                         objectFit: "cover",
                     }}
                 />
-
                 <div className="card-body">
                     <h5 className="card-title">{name}</h5>
-                    <p className="card-title">{price} -:</p>
-                    <p className="card-title"> Stock {stock}</p>
-
+                    <p className="card-text">{price} :-</p>
+                    <p className="card-text">{descriptionShort}...</p>
+                </div>
+                <div className="card-footer">
                     <Link to={`/product/${id}`}>
                         <button className="btn btn-outline-primary btn-sm mr-2">
                             Info
@@ -82,11 +85,30 @@ const ProductList = ({
                         </button>
                     )}
                 </div>
-
-                <div className="btn-container"></div>
             </div>
         </div>
     )
 }
+
+//                     {!isInCart(cartProduct, cartItems) ? (
+//                         <button
+//                             className="btn btn-success btn-sm"
+//                             onClick={() => addProduct(cartProduct)}>
+//                             Add to Cart
+//                         </button>
+//                     ) : (
+//                         <button
+//                             className="btn btn-outline-success btn-sm"
+//                             onClick={() => increase(cartProduct)}>
+//                             Add More
+//                         </button>
+//                     )}
+//                 </div>
+
+//                 <div className="btn-container"></div>
+//             </div>
+//         </div>
+//     )
+// }
 
 export default ProductList
