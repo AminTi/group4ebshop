@@ -40,22 +40,14 @@ export default function Layout({ children }) {
                 <Link className="header-home link navbar-brand" to="/">
                     Home
                 </Link>
-                {/*<Link className="header-cart link" to="/cart" onClick={toggleCart}>
-          <FiShoppingCart />
-          {`(${itemCount})`}
-  </Link>
-        <div className="header-cart link" onClick={toggleCart}>
-          <FiShoppingCart />
-          {`(${itemCount})`}
-        </div>*/}
                 {renderShowCart()}
                 {renderCart()}
             </header>
             {children}
-            <div class="card text-center mt-4">
-                <div class="card-header">This is a footer</div>
-                <div class="card-body">
-                    <blockquote class="blockquote mb-0">
+            <div className="card text-center mt-4">
+                <div className="card-header">This is a footer</div>
+                <div className="card-body">
+                    <blockquote className="blockquote mb-0">
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit. Integer posuere erat a ante.

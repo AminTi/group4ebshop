@@ -24,11 +24,6 @@ function App() {
             );
           }}
         ></Route>
-        <Route path="/cart">
-          <Layout>
-            <CartPage />
-          </Layout>
-        </Route>
         <Route path="/checkout">
           <Layout>
             <CheckoutPage />

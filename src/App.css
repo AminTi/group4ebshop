@@ -8,9 +8,90 @@
   background-color: lightgrey;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding: 10px;
-  transition: 0.9s; /* 0.5 second transition effect to slide in the sidenav */
+  transition: 0.5s; /* Funkar bara om man ändrar på width mellan 0 och 300? */
+  border: solid 1px grey;
+  border-radius: 5px;
 }
 
-.cart-qty-change {
+.cart-item {
+  background-color: white;
+  padding: 0.7em;
+  border: solid 1px grey;
+  border-radius: 5px;
   margin-bottom: 10px;
+}
+
+.cart-name,
+.cart-price,
+.cart-qty {
+  display: inline-block;
+  padding: 10px;
+  margin: 0;
+}
+
+.cart-qty {
+  padding-left: 0;
+}
+
+.cart-image-wrapper {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  border: solid 1px dimgray;
+  border-radius: 3px;
+}
+
+.cart-image {
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  border-radius: 3px;
+}
+
+.cart-qty-increase {
+  margin-right: 5px;
+}
+
+.button-qty,
+.button-clear,
+.button-checkout {
+  border-radius: 5px;
+}
+
+.button-qty:hover {
+  background-color: wheat;
+}
+
+.cart-qty-remove:hover {
+  background-color: rgb(224, 149, 149);
+}
+
+.button-clear {
+  margin: 10px 10px 0 0;
+}
+
+.button-clear:hover {
+  background-color: rgb(224, 149, 149);
+}
+
+.button-checkout:hover {
+  background-color: rgb(186, 229, 186);
+}
+
+.link-checkout {
+  text-decoration: none;
+  color: black;
+}
+
+.link-checkout:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.checkout-container {
+  position: relative;
+  top: 56px; /*under navbar*/
 }
