@@ -8,7 +8,6 @@ import TableStartPage from "../components/TableStartPage"
 function CheckoutPage() {
     const context = useContext(CartContext)
     const [discountCupon, setDescount] = useState({})
-
     const [inputValue, setinputValue] = useState()
     const apiKey = useRef()
 
@@ -29,32 +28,65 @@ function CheckoutPage() {
     let productTotalPrice = parseInt(context.totalSum)
 
     const discountCounter = () => {
-        if (inputValue) {
+        if (
+            inputValue === "BLACKFRIDAY" ||
+            inputValue === "SUMMER19" ||
+            inputValue === "BLACKFRIDAY2019"
+        ) {
             return productTotalPrice * discountprice
         } else {
             return productTotalPrice
         }
     }
 
-    return (
-        <>
-            <h3>CheckoutPage</h3>
-            {context.cartItems.map((item, index) => {
-                return (
-                    <TableStartPage
-                        key={index}
-                        img={item.image}
-                        name={item.name}
-                        quantity={item.quantity}
-                        price={item.price}
-                    />
-                )
-            })}
+    const ErrorCheck = () => {
+        if (
+            inputValue === "BLACKFRIDAY" ||
+            inputValue === "SUMMER19" ||
+            inputValue === "BLACKFRIDAY2019"
+        ) {
+            return (apiKey.current.disabled = true)
+        }
+    }
 
-            <span>{discountCounter()}</span>
+    return (
+        <div className="checkout-container">
+            <h3 className="checkout-header">Welcome to Checkout</h3>
+            <table className="table">
+                <thead className="thead-dark">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col"> Product</th>
+                        <th scope="col"> Quantity </th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {context.cartItems.map((item, index) => {
+                        return (
+                            <TableStartPage
+                                key={index}
+                                img={item.image}
+                                name={item.name}
+                                quantity={item.quantity}
+                                price={item.price}
+                            />
+                        )
+                    })}
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+
             <input type="text" ref={apiKey} />
-            <button onClick={discountValues}>Check</button>
-        </>
+            {ErrorCheck() && <span> Discount applied </span>}
+            <button className="button-discount" onClick={discountValues}>
+                {" "}
+                Apply discount
+            </button>
+            <h5 className="checkout-price">
+                Total Price: {discountCounter()}:-
+            </h5>
+        </div>
     )
 }
 
