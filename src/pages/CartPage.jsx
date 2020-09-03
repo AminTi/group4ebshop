@@ -20,7 +20,7 @@ export default function CartPage(props) {
             <div>Total: {totalSum}:-</div>
             <div>Items: {itemCount} pcs</div>
             <button onClick={() => clearCart()} className="button-clear">
-                Clear Cart
+                <Link to="/"> Clear Cart </Link>
             </button>
             <button className="button-checkout">
                 <Link to="/checkout" className="link-checkout">
