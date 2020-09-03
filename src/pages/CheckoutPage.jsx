@@ -1,51 +1,60 @@
-import React, { useContext } from "react"
+import React, { useContext, useRef, useState, useEffect } from "react"
+import axios from "axios"
+
 import { CartContext } from "../context/CartContext"
+
+import TableStartPage from "../components/TableStartPage"
 
 function CheckoutPage() {
     const context = useContext(CartContext)
-    console.log(context)
+    const [discountCupon, setDescount] = useState({})
+
+    const [inputValue, setinputValue] = useState()
+    const apiKey = useRef()
+
+    const descountApi = `https://mock-data-api.firebaseio.com/e-commerce/couponCodes/${inputValue}.json`
+
+    const discountValues = (e) => {
+        setinputValue(apiKey.current.value.toUpperCase())
+        axios.get(descountApi).then((res) => {
+            setDescount(res.data)
+        })
+    }
+
+    useEffect(() => {
+        discountValues()
+    }, [inputValue])
+
+    const discountprice = discountCupon && discountCupon.discount
+    let productTotalPrice = parseInt(context.totalSum)
+
+    const discountCounter = () => {
+        if (inputValue) {
+            return productTotalPrice * discountprice
+        } else {
+            return productTotalPrice
+        }
+    }
 
     return (
-        <div>
+        <>
             <h3>CheckoutPage</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Image</th>
-                        <th> Product</th>
-                        <th> Quantity </th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {context.cartItems.map((item, index) => (
-                        <tr key={index}>
-                            <td>
-                                <div className="container-tableImg">
-                                    <img
-                                        src={item.image}
-                                        className={"tableImg"}
-                                    />
-                                </div>
-                            </td>
-                            <td>{item.name}</td>
-                            <td>{item.quantity}</td>
-                            <td>{item.price}</td>
-                        </tr>
-                    ))}
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td>Sum</td>
-                        <td>{context.totalSum}</td>
-                        <td> Discount coupon </td>
-                        <td>
-                            <input type="text" />
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
+            {context.cartItems.map((item, index) => {
+                return (
+                    <TableStartPage
+                        key={index}
+                        img={item.image}
+                        name={item.name}
+                        quantity={item.quantity}
+                        price={item.price}
+                    />
+                )
+            })}
+
+            <span>{discountCounter()}</span>
+            <input type="text" ref={apiKey} />
+            <button onClick={discountValues}>Check</button>
+        </>
     )
 }
 

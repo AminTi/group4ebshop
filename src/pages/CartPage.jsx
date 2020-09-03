@@ -4,11 +4,9 @@ import { CartContext } from "../context/CartContext"
 import { Link } from "react-router-dom"
 
 export default function CartPage(props) {
-    console.log(props)
     const { cartItems, totalSum, itemCount, clearCart } = useContext(
         CartContext
     )
-    console.log(cartItems)
 
     const checkOut = () => {}
     return (
