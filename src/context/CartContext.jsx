@@ -1,6 +1,5 @@
 import React, { createContext, useState } from "react"
 import { useEffect } from "react"
-import CheckoutPage from "../pages/CheckoutPage"
 
 export const CartContext = createContext()
 
@@ -94,7 +93,6 @@ const CartContextProvider = ({ children }) => {
     return (
         <CartContext.Provider value={contextValues}>
             {children}
-            {/* <CheckoutPage /> */}
         </CartContext.Provider>
     )
 }
