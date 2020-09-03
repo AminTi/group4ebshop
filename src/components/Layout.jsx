@@ -40,14 +40,6 @@ export default function Layout({ children }) {
         <Link className="header-home link navbar-brand" to="/">
           Home
         </Link>
-        {/*<Link className="header-cart link" to="/cart" onClick={toggleCart}>
-          <FiShoppingCart />
-          {`(${itemCount})`}
-  </Link>
-        <div className="header-cart link" onClick={toggleCart}>
-          <FiShoppingCart />
-          {`(${itemCount})`}
-        </div>*/}
         {renderShowCart()}
         {renderCart()}
       </header>

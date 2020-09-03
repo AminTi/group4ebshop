@@ -11,14 +11,20 @@ export default function CartPage(props) {
   const checkOut = () => {};
   return (
     <div className="cartpage">
-      <h2>Cart</h2>
+      <h2>Your Cart</h2>
       {cartItems.map((item) => (
         <Cart key={item.id} product={item} />
       ))}
-      <div>total:{totalSum}</div>
-      <div>itemCount:{itemCount}</div>
-      <button onClick={() => clearCart()}>Clear Cart</button>
-      <Link to="/checkout">Go to checkout</Link>
+      <div>Total: {totalSum}:-</div>
+      <div>Items: {itemCount} pcs</div>
+      <button onClick={() => clearCart()} className="button-clear">
+        Clear Cart
+      </button>
+      <button className="button-checkout">
+        <Link to="/checkout" className="link-checkout">
+          Go to checkout
+        </Link>
+      </button>
     </div>
   );
 }
