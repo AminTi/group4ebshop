@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 
-const TableStartPage = ({ img, name, quantity, price, totalPrice }) => {
+const TableStartPage = ({ img, name, quantity, price }) => {
   return (
     <tr scope="row">
       <td>

@@ -59,7 +59,8 @@
 
 .button-qty,
 .button-clear,
-.button-checkout {
+.button-checkout,
+.button-discount {
   border-radius: 5px;
 }
 
@@ -112,4 +113,8 @@
 .checkout-price {
   margin-top: 10px;
   font-weight: bold;
+}
+
+.button-discount {
+  margin-left: 10px;
 }
