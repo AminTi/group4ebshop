@@ -42,7 +42,7 @@ function CheckoutPage() {
 
     const ErrorCheck = () => {
         if (
-            inputValue === "BLACKFRIDAY2019" ||
+            inputValue === "BLACKFRIDAY" ||
             inputValue === "SUMMER19" ||
             inputValue === "BLACKFRIDAY2019"
         ) {
