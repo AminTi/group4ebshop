@@ -21,10 +21,6 @@ function CheckoutPage() {
     });
   };
 
-  console.log(inputValue);
-  console.log(discountCupon);
-  console.log(discountPrice);
-
   useEffect(() => {
     discountValues();
   }, [inputValue]);
@@ -104,7 +100,8 @@ function CheckoutPage() {
         Order
       </button>
       <h5 className="checkout-price">
-        Total Price: {Math.ceil(discountPrice)}:-
+        Total Price: {Math.ceil(discountPrice)}Kr
+        {/* <Order /> */}
       </h5>
     </div>
   );
