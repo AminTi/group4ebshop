@@ -13,6 +13,7 @@ function CheckoutPage() {
   const [discountPrice, setDiscountPrice] = useState([]);
   const [order, setOrder] = useState(false);
   const apiKey = useRef();
+  const userInput = useRef();
   const [NaN, setNaN] = useState(0);
 
   let productTotalPrice = parseInt(context.totalSum);
@@ -108,12 +109,14 @@ function CheckoutPage() {
       <h5 className="checkout-price">
         Total Price: {Math.ceil(discountPrice)}Kr
       </h5>
+      <input type="text" ref={userInput} placeholder="Enter Your name" />
       {order && (
         <Order
           discountPrice={discountPrice}
           {...context}
           setOrder={setOrder}
           setDiscountPrice={setDiscountPrice}
+          userInput={userInput.current.value}
         />
       )}
     </div>
