@@ -11,6 +11,7 @@ function CheckoutPage() {
   const [discountCupon, setDescount] = useState({});
   const [inputValue, setinputValue] = useState();
   const [discountPrice, setDiscountPrice] = useState([]);
+  const [order, setOrder] = useState(false);
   const apiKey = useRef();
 
   const discountValues = (e) => {
@@ -94,15 +95,17 @@ function CheckoutPage() {
         Apply discount
       </button>
       <button
+        onClick={() => setOrder(true)}
         className="button-discount btn btn-success btn-sm"
-        onClick={discountValues}
       >
         Order
       </button>
       <h5 className="checkout-price">
         Total Price: {Math.ceil(discountPrice)}Kr
-        {/* <Order /> */}
       </h5>
+      {order && (
+        <Order discountPrice={discountPrice} {...context} setOrder={setOrder} />
+      )}
     </div>
   );
 }

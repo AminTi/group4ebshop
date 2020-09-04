@@ -47,16 +47,15 @@ export default function Layout({ children }) {
         {renderCart()}
       </header>
       {children}
-      <div className="card text-center mt-4">
-        <div className="card-header">
+      <footer className="footer">
+        {/* <div className="card-header">
           <h5>Room4Shop</h5>
-        </div>
-        <div className="card-body">
-          <blockquote className="blockquote mb-0">
-            <p>Project Assignment for Javascript 3, React</p>
-          </blockquote>
-        </div>
-      </div>
+        </div> */}
+        <p>Project Assignment for Javascript 3, React</p>
+        {/* <div className="">
+          <blockquote className=""></blockquote>
+        </div> */}
+      </footer>
     </div>
   );
 }
