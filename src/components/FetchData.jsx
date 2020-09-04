@@ -22,19 +22,7 @@ const FetchData = () => {
   return (
     <div className="main-container row">
       {Object.entries(data).map((item) => {
-        return (
-          <ProductList
-            key={item[0]}
-            {...item[1]}
-            // description={item[1].description}
-            // name={item[1].name}
-            // price={item[1].price}
-            // rating={item[1].rating}
-            // stock={item[1].stock}
-            // images={item[1].images}
-            // id={item[1].id}
-          />
-        );
+        return <ProductList key={item[0]} {...item[1]} />;
       })}
     </div>
   );

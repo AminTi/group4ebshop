@@ -6,23 +6,13 @@ import { useState, useContext } from "react";
 import CartPage from "../pages/CartPage";
 
 export default function Layout({ children }) {
-<<<<<<< HEAD
   const { itemCount, toggleCart, showCart } = useContext(CartContext);
-  //   const [showCart, setShowCart] = useState(false);
-=======
-  const { itemCount } = useContext(CartContext);
-  const [showCart, setShowCart] = useState(false);
->>>>>>> ce3e597485585541597bd80cc61f76c726da1cc1
 
   function renderCart() {
     if (showCart) {
       return (
         <>
-<<<<<<< HEAD
           <span onClick={() => toggleCart(true)}>
-=======
-          <span onClick={() => setShowCart(false)}>
->>>>>>> ce3e597485585541597bd80cc61f76c726da1cc1
             <FiShoppingCart />
             {`(${itemCount})`}
           </span>
@@ -35,11 +25,7 @@ export default function Layout({ children }) {
   function renderShowCart() {
     if (!showCart) {
       return (
-<<<<<<< HEAD
         <span onClick={() => toggleCart(false)}>
-=======
-        <span onClick={() => setShowCart(true)}>
->>>>>>> ce3e597485585541597bd80cc61f76c726da1cc1
           <FiShoppingCart />
           {`(${itemCount})`}
         </span>
@@ -50,15 +36,11 @@ export default function Layout({ children }) {
   return (
     <div>
       <header className="header navbar fixed-top navbar-light bg-light mb-4">
-<<<<<<< HEAD
         <Link
-          onClick={() => toggleCart(showCart)}
+          className="header-home link navbar-brand"
           className="header-home link navbar-brand"
           to="/"
         >
-=======
-        <Link className="header-home link navbar-brand" to="/">
->>>>>>> ce3e597485585541597bd80cc61f76c726da1cc1
           Home
         </Link>
         {renderShowCart()}
