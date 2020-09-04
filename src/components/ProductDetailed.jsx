@@ -8,7 +8,7 @@ function ProductDetailed({ data }) {
   const cartProduct = { name, price, id, src };
   const { addProduct, increase, isInCart, cartItems } = useContext(CartContext);
   return (
-    <div className="card">
+    <div className="card mx-5">
       <img
         src={data.images[0].src.small}
         className="card-img-top"
@@ -21,7 +21,7 @@ function ProductDetailed({ data }) {
         <h3 className="card-text">{data.description}</h3>
         {!isInCart(cartProduct, cartItems) ? (
           <button
-            className="btn btn-success"
+            className="btn btn-success mt-4"
             onClick={() => addProduct(cartProduct)}
           >
             Add to Cart
@@ -35,10 +35,9 @@ function ProductDetailed({ data }) {
           </button>
         )}
         <div className="card mt-4">
-        <FetchReviews productId={data.id} />
+          <FetchReviews productId={data.id} />
+        </div>
       </div>
-      </div>
-      
     </div>
   );
 }
