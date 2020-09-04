@@ -13,7 +13,7 @@ import Order from "./components/Order";
 
 function App() {
   return (
-    <div className="container">
+    <>
       <Switch>
         <Route
           path="/product/:id"
@@ -36,7 +36,7 @@ function App() {
           </Layout>
         </Route>
       </Switch>
-    </div>
+    </>
   );
 }
 
