@@ -12,6 +12,8 @@ function CheckoutPage() {
     const [inputValue, setinputValue] = useState()
     const [discountPrice, setDiscountPrice] = useState([])
     const apiKey = useRef()
+    const [NaN, setNaN] = useState()
+
     let productTotalPrice = parseInt(context.totalSum)
 
     const discountValues = (e) => {
@@ -19,6 +21,7 @@ function CheckoutPage() {
         const descountApi = `https://mock-data-api.firebaseio.com/e-commerce/couponCodes/${inputValue}.json`
         axios.get(descountApi).then((res) => {
             setDescount(res.data)
+            setNaN(productTotalPrice)
         })
     }
 
@@ -37,10 +40,10 @@ function CheckoutPage() {
             inputValue === "SUMMER19" ||
             inputValue === "BLACKFRIDAY2019"
         ) {
-            const disTotal = productTotalPrice * discountprice
+            const disTotal = NaN * discountprice
             return disTotal
         } else {
-            const finalPrice = productTotalPrice
+            const finalPrice = NaN
             return finalPrice
         }
     }
