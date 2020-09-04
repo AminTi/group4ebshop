@@ -83,6 +83,7 @@
 .button-clear {
   background-color: white;
   margin: 10px 10px 0 0;
+  margin-bottom: 10px;
 }
 
 .button-clear:hover {
@@ -91,6 +92,7 @@
 
 .button-checkout {
   background-color: white;
+  margin-bottom: 10px;
 }
 
 .button-checkout:hover {

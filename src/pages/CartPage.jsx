@@ -16,7 +16,6 @@ export default function CartPage(props) {
   //   const [showCart, setShowCart] = useState(true);
   console.log(cartItems);
 
-  //   const checkOut = () => {};
   return (
     <div className="cartpage">
       <h2>Your Cart</h2>
