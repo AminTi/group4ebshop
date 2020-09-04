@@ -1,4 +1,9 @@
-/* Styling for cart, checkout and footer */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .cartpage {
   height: 90%;
   width: 300px;
@@ -101,6 +106,7 @@
 }
 
 .checkout-container {
+  margin: 0 50px;
   position: relative;
   top: 56px; /*under navbar*/
   margin-bottom: 137px; /*push footer down*/
@@ -118,4 +124,10 @@
 
 .button-discount {
   margin-left: 10px;
+}
+
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  padding: 10px 0;
 }
