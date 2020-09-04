@@ -139,4 +139,5 @@
 .detail-container {
   position: relative;
   top: 96px; /*under navbar*/
+  margin-bottom: 137px; /*push footer down*/
 }
