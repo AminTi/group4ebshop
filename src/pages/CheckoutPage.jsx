@@ -13,6 +13,7 @@ function CheckoutPage() {
     const [discountPrice, setDiscountPrice] = useState([])
     const apiKey = useRef()
     const [NaN, setNaN] = useState(0)
+    console.log(NaN)
 
     let productTotalPrice = parseInt(context.totalSum)
 
@@ -96,6 +97,7 @@ function CheckoutPage() {
             {discountCupon == null && (
                 <span className="unValidCupon"> Invalid Coupon code</span>
             )}
+
             <button
                 className="button-discount btn btn-primary btn-sm"
                 onClick={discountValues}>
