@@ -18,10 +18,10 @@ function CheckoutPage() {
 
     const discountValues = (e) => {
         setinputValue(apiKey.current.value.toUpperCase())
+        setNaN(productTotalPrice)
         const descountApi = `https://mock-data-api.firebaseio.com/e-commerce/couponCodes/${inputValue}.json`
         axios.get(descountApi).then((res) => {
             setDescount(res.data)
-            setNaN(productTotalPrice)
         })
     }
 
