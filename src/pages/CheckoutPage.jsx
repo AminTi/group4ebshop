@@ -11,6 +11,7 @@ function CheckoutPage() {
   const [discountCupon, setDescount] = useState({});
   const [inputValue, setinputValue] = useState();
   const [discountPrice, setDiscountPrice] = useState([]);
+  const [order, setOrder] = useState(false);
   const apiKey = useRef();
   const [NaN, setNaN] = useState(0);
 
@@ -108,7 +109,12 @@ function CheckoutPage() {
         Total Price: {Math.ceil(discountPrice)}Kr
       </h5>
       {order && (
-        <Order discountPrice={discountPrice} {...context} setOrder={setOrder} />
+        <Order
+          discountPrice={discountPrice}
+          {...context}
+          setOrder={setOrder}
+          setDiscountPrice={setDiscountPrice}
+        />
       )}
     </div>
   );
