@@ -11,11 +11,14 @@ function CheckoutPage() {
   const [discountCupon, setDescount] = useState({});
   const [inputValue, setinputValue] = useState();
   const [discountPrice, setDiscountPrice] = useState([]);
-  const [order, setOrder] = useState(false);
   const apiKey = useRef();
+  const [NaN, setNaN] = useState(0);
+
+  let productTotalPrice = parseInt(context.totalSum);
 
   const discountValues = (e) => {
     setinputValue(apiKey.current.value.toUpperCase());
+
     const descountApi = `https://mock-data-api.firebaseio.com/e-commerce/couponCodes/${inputValue}.json`;
     axios.get(descountApi).then((res) => {
       setDescount(res.data);
@@ -31,17 +34,18 @@ function CheckoutPage() {
   }, [discountCupon]);
 
   const discountCounter = () => {
-    let productTotalPrice = parseInt(context.totalSum);
+    setNaN(productTotalPrice);
+    console.log(NaN);
     const discountprice = discountCupon && discountCupon.discount;
     if (
       inputValue === "BLACKFRIDAY" ||
       inputValue === "SUMMER19" ||
       inputValue === "BLACKFRIDAY2019"
     ) {
-      const disTotal = productTotalPrice * discountprice;
+      const disTotal = NaN * discountprice;
       return disTotal;
     } else {
-      const finalPrice = productTotalPrice;
+      const finalPrice = NaN;
       return finalPrice;
     }
   };
@@ -85,7 +89,7 @@ function CheckoutPage() {
       </table>
 
       <input type="text" ref={apiKey} />
-      {ErrorCheck() && <span> Discount applied </span>}
+      {ErrorCheck() && <span className="validCupon"> Discount applied </span>}
 
       {discountCupon == null && <span> Invalid Coupon code</span>}
       <button

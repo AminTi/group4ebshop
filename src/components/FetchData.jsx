@@ -20,7 +20,7 @@ const FetchData = () => {
   }, []);
 
   return (
-    <div className="main-container row">
+    <div className="main-container row mx-2">
       {Object.entries(data).map((item) => {
         return <ProductList key={item[0]} {...item[1]} />;
       })}

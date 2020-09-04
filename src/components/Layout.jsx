@@ -37,6 +37,7 @@ export default function Layout({ children }) {
     <div>
       <header className="header navbar fixed-top navbar-light bg-light mb-4">
         <Link
+          //onClick={() => toggleCart(showCart)}
           className="header-home link navbar-brand"
           className="header-home link navbar-brand"
           to="/"
@@ -47,14 +48,9 @@ export default function Layout({ children }) {
         {renderCart()}
       </header>
       {children}
-      <footer className="footer">
-        {/* <div className="card-header">
-          <h5>Room4Shop</h5>
-        </div> */}
+      <footer className="bg-light footer">
+        <h5>Room4Shop</h5>
         <p>Project Assignment for Javascript 3, React</p>
-        {/* <div className="">
-          <blockquote className=""></blockquote>
-        </div> */}
       </footer>
     </div>
   );
