@@ -89,9 +89,13 @@ function CheckoutPage() {
             </table>
 
             <input type="text" ref={apiKey} />
-            {ErrorCheck() && <span> Discount applied </span>}
+            {ErrorCheck() && (
+                <span className="validCupon"> Discount applied </span>
+            )}
 
-            {discountCupon == null && <span> Invalid Coupon code</span>}
+            {discountCupon == null && (
+                <span className="unValidCupon"> Invalid Coupon code</span>
+            )}
             <button
                 className="button-discount btn btn-primary btn-sm"
                 onClick={discountValues}>

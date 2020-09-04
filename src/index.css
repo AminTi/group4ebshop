@@ -83,3 +83,11 @@
     min-width: 100%;
     min-height: 100%;
 }
+
+.validCupon {
+    color: green;
+}
+
+.unValidCupon {
+    color: red;
+}
