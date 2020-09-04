@@ -48,7 +48,7 @@ const ProductList = ({
         <div
             className="col-md-3 d-flex align-items-stretch"
             style={{ marginTop: 70 }}>
-            <div className="items-wrapper card" style={{}}>
+            <div className="items-wrapper card flex-grow"style={{width:1000}}>
                 <img
                     src={images[0].src.small}
                     alt={images[0].alt}

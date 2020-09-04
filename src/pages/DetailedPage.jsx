@@ -4,12 +4,12 @@ import FetchDataDescribed from "../components/FetchDataDescribed";
 
 export default function DetailedPage(props) {
   // console.log(props);
-  
-  const productId = props.match.params.id
+
+  const productId = props.match.params.id;
 
   return (
-    <div>
-      <FetchDataDescribed productId={productId}/>
+    <div className="detail-container">
+      <FetchDataDescribed productId={productId} />
     </div>
   );
 }
