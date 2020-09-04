@@ -6,14 +6,13 @@ import { useState, useContext } from "react";
 import CartPage from "../pages/CartPage";
 
 export default function Layout({ children }) {
-  const { itemCount } = useContext(CartContext);
-  const [showCart, setShowCart] = useState(false);
+  const { itemCount, toggleCart, showCart } = useContext(CartContext);
 
   function renderCart() {
     if (showCart) {
       return (
         <>
-          <span onClick={() => setShowCart(false)}>
+          <span onClick={() => toggleCart(true)}>
             <FiShoppingCart />
             {`(${itemCount})`}
           </span>
@@ -26,7 +25,7 @@ export default function Layout({ children }) {
   function renderShowCart() {
     if (!showCart) {
       return (
-        <span onClick={() => setShowCart(true)}>
+        <span onClick={() => toggleCart(false)}>
           <FiShoppingCart />
           {`(${itemCount})`}
         </span>
@@ -37,7 +36,11 @@ export default function Layout({ children }) {
   return (
     <div>
       <header className="header navbar fixed-top navbar-light bg-light mb-4">
-        <Link className="header-home link navbar-brand" to="/">
+        <Link
+          className="header-home link navbar-brand"
+          className="header-home link navbar-brand"
+          to="/"
+        >
           Home
         </Link>
         {renderShowCart()}

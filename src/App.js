@@ -9,6 +9,7 @@ import DetailedPage from "./pages/DetailedPage";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import "bootstrap/dist/css/bootstrap.css";
+import Order from "./components/Order";
 
 function App() {
   return (

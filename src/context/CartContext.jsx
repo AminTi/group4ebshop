@@ -7,6 +7,7 @@ const CartContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [totalSum, setTotalSum] = useState(0);
   const [itemCount, setItemCount] = useState([]);
+  const [showCart, setShowCart] = useState(false);
 
   const storage = (cartItems) => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
@@ -72,6 +73,10 @@ const CartContextProvider = ({ children }) => {
     return cartItems.some((item) => item.id === product.id);
   };
 
+  const toggleCart = (showCart) => {
+    return showCart ? setShowCart(false) : setShowCart(true);
+  };
+
   const contextValues = {
     cartItems,
     totalSum,
@@ -82,6 +87,8 @@ const CartContextProvider = ({ children }) => {
     removeProduct,
     clearCart,
     isInCart,
+    toggleCart,
+    showCart,
   };
 
   return (
