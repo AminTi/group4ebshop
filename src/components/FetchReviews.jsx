@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Reviews from "./Reviews";
-// import ProductDetailed from "./ProductDetailed"
-// import ProductList from "./ProductList";
-// import ProductDetailed from "./ProductDetailed";
 
 const FetchReviews = ({ productId }) => {
   const [data, setData] = useState({});
@@ -26,7 +23,6 @@ const FetchReviews = ({ productId }) => {
 
   console.log(data);
 
-
   return (
     <>
       <h1 className="card-header">Reviews</h1>
@@ -36,12 +32,11 @@ const FetchReviews = ({ productId }) => {
             <h2 className="card-header">{item[1].title}</h2>
             <div className="card-body">
               <p>{item[1].description}</p>
-              <footer className="blockquote-footer">{item[1].author.name} {item[1].date}</footer>
+              <footer className="blockquote-footer">
+                {item[1].author.name} {item[1].date}
+              </footer>
             </div>
-            
           </div>
-         
-          
         </div>
       ))}
     </>

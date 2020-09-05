@@ -38,6 +38,7 @@ export default function Layout({ children }) {
       <header className="header navbar fixed-top navbar-light bg-light mb-4">
         <Link
           onClick={(showCart) => toggleCart(showCart)}
+          //onClick={showCart && toggleCart(showCart)}
           className="header-home link navbar-brand"
           className="header-home link navbar-brand"
           to="/"
