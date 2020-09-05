@@ -1,41 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { withRouter } from "react-router-dom";
 
-function Order() {
+import { AiFillCloseCircle } from "react-icons/ai";
+
+function Order({
+  setOrder,
+  discountPrice,
+  cartItems,
+  clearCart,
+  setDiscountPrice,
+  userInput,
+  history,
+}) {
+  const postOrder = (discountPrice, cartItems) => {
+    axios
+      .post(
+        "https://mock-data-api.firebaseio.com/e-commerce/orders/group4.json",
+        {
+          post_by: userInput,
+          totalPrice: discountPrice,
+          productList: cartItems,
+        }
+      )
+      .then(function (response) {
+        console.log(response);
+        setDiscountPrice(0);
+      });
+  };
+  useEffect(() => {
+    clearCart();
+    postOrder(discountPrice, cartItems);
+  }, []);
+
   return (
-    <div className="modal">
-      <h1>hello</h1>
-      <div className="modal-dialog" role="document">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">Modal title</h5>
-            <button
-              type="button"
-              className="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div className="modal-body">
-            <p>Modal body text goes here.</p>
-          </div>
-          <div className="modal-footer">
-            <button type="button" className="btn btn-primary">
-              Save changes
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-          </div>
+    <div className="backdrop">
+      <div className="modal">
+        <h2>Thank You {userInput}</h2>
+        <div className="modal-close">
+          <AiFillCloseCircle onClick={() => setOrder(false)} />
         </div>
+        <span>Your Order On the Way</span>
+        <button className="modal-conten" onClick={() => history.push("/")}>
+          Buy More
+        </button>
       </div>
     </div>
   );
 }
 
-export default Order;
+export default withRouter(Order);

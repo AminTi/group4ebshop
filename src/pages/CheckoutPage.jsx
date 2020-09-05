@@ -11,9 +11,10 @@ function CheckoutPage() {
     const [discountCupon, setDescount] = useState({})
     const [inputValue, setinputValue] = useState()
     const [discountPrice, setDiscountPrice] = useState([])
+    const [order, setOrder] = useState(false)
     const apiKey = useRef()
-    const [NaN, setNaN] = useState(0)
-    console.log(NaN)
+    const userInput = useRef()
+    const [NotANumber, setNaN] = useState(0)
 
     let productTotalPrice = parseInt(context.totalSum)
 
@@ -36,17 +37,18 @@ function CheckoutPage() {
 
     const discountCounter = () => {
         setNaN(productTotalPrice)
-        console.log(NaN)
+        console.log(NotANumber)
         const discountprice = discountCupon && discountCupon.discount
+        console.log(discountprice)
         if (
             inputValue === "BLACKFRIDAY" ||
             inputValue === "SUMMER19" ||
             inputValue === "BLACKFRIDAY2019"
         ) {
-            const disTotal = NaN * discountprice
+            const disTotal = NotANumber * discountprice
             return disTotal
         } else {
-            const finalPrice = NaN
+            const finalPrice = NotANumber
             return finalPrice
         }
     }
@@ -93,10 +95,7 @@ function CheckoutPage() {
             {ErrorCheck() && (
                 <span className="validCupon"> Discount applied </span>
             )}
-
-            {discountCupon == null && (
-                <span className="unValidCupon"> Invalid Coupon code</span>
-            )}
+            {discountCupon == null && <span> Invalid Coupon code</span>}
 
             <button
                 className="button-discount btn btn-primary btn-sm"
@@ -104,13 +103,23 @@ function CheckoutPage() {
                 Apply discount
             </button>
             <button
-                className="button-discount btn btn-success btn-sm"
-                onClick={discountValues}>
+                onClick={() => setOrder(true)}
+                className="button-discount btn btn-success btn-sm">
                 Order
             </button>
             <h5 className="checkout-price">
-                Total Price: {Math.ceil(discountPrice)}:-
+                Total Price: {Math.ceil(discountPrice)} Kr
             </h5>
+            <input type="text" ref={userInput} placeholder="Enter Your name" />
+            {order && (
+                <Order
+                    discountPrice={discountPrice}
+                    {...context}
+                    setOrder={setOrder}
+                    setDiscountPrice={setDiscountPrice}
+                    userInput={userInput.current.value}
+                />
+            )}
         </div>
     )
 }
