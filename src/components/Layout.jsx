@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
 import { CartContext } from "../context/CartContext";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import CartPage from "../pages/CartPage";
 
 export default function Layout({ children }) {
@@ -37,7 +37,7 @@ export default function Layout({ children }) {
     <div>
       <header className="header navbar fixed-top navbar-light bg-light mb-4">
         <Link
-          //onClick={() => toggleCart(showCart)}
+          onClick={(showCart) => toggleCart(showCart)}
           className="header-home link navbar-brand"
           className="header-home link navbar-brand"
           to="/"
