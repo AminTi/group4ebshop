@@ -4,6 +4,14 @@
   padding: 0;
 }
 
+body {
+  /* width: 100%; */
+  /* transition: all 0.4s; */
+  /* position: relative; */
+  /* height: 100%; */
+  /* min-height: 100%; */
+}
+
 .cartpage {
   height: 90%;
   width: 300px;
@@ -194,6 +202,7 @@ button:hover,
   transform: scale(1.1);
 }
 .footer {
+  /* margin-top: 50px; */
   width: 100vw;
   display: flex;
   justify-content: center;

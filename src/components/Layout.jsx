@@ -39,7 +39,6 @@ export default function Layout({ children }) {
         <Link
           //onClick={() => toggleCart(showCart)}
           className="header-home link navbar-brand"
-          className="header-home link navbar-brand"
           to="/"
         >
           Home

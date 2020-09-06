@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
-
+import moment from "moment";
 import { AiFillCloseCircle } from "react-icons/ai";
 
 function Order({
@@ -13,6 +13,7 @@ function Order({
   userInput,
   history,
 }) {
+  const [date] = useState(moment().format("LLL"));
   const postOrder = (discountPrice, cartItems) => {
     axios
       .post(
@@ -21,6 +22,7 @@ function Order({
           post_by: userInput,
           totalPrice: discountPrice,
           productList: cartItems,
+          created_at: date,
         }
       )
       .then(function (response) {
@@ -28,6 +30,7 @@ function Order({
         setDiscountPrice(0);
       });
   };
+
   useEffect(() => {
     clearCart();
     postOrder(discountPrice, cartItems);
@@ -38,7 +41,7 @@ function Order({
       <div className="modal">
         <h2>Thank You {userInput}</h2>
         <div className="modal-close">
-          <AiFillCloseCircle onClick={() => setOrder(false)} />
+          <AiFillCloseCircle onClick={() => history.push("/")} />
         </div>
         <span>Your Order On the Way</span>
         <button className="modal-conten" onClick={() => history.push("/")}>
