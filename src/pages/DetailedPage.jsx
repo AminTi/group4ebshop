@@ -7,7 +7,7 @@ export default function DetailedPage(props) {
   const productId = props.match.params.id;
 
   return (
-    <div className="detail-container">
+    <div className="detail-container info-fix">
       <FetchDataDescribed productId={productId} />
     </div>
   );

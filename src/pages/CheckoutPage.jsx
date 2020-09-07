@@ -91,26 +91,32 @@ function CheckoutPage() {
                 <tfoot></tfoot>
             </table>
 
-            <input type="text" ref={apiKey} />
+            <input type="text" ref={apiKey} placeholder="Enter Coupon Code" />
             {ErrorCheck() && (
                 <span className="validCupon"> Discount applied </span>
             )}
-            {discountCupon == null && <span> Invalid Coupon code</span>}
 
+            {discountCupon == null && <span> Invalid Coupon code</span>}
             <button
                 className="button-discount btn btn-primary btn-sm"
                 onClick={discountValues}>
                 Apply discount
             </button>
+            <input
+                type="text"
+                ref={userInput}
+                placeholder="Enter Your name"
+                className="input-order-name"
+            />
+
             <button
                 onClick={() => setOrder(true)}
                 className="button-discount btn btn-success btn-sm">
                 Order
             </button>
             <h5 className="checkout-price">
-                Total Price: {Math.ceil(discountPrice)} Kr
+                Total Price: {Math.ceil(discountPrice)} kr
             </h5>
-            <input type="text" ref={userInput} placeholder="Enter Your name" />
             {order && (
                 <Order
                     discountPrice={discountPrice}
