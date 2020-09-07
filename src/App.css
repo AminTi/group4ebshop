@@ -22,12 +22,15 @@ body {
   width: 300px;
   position: fixed;
   z-index: 1;
-  top: 56px; /* Under navbar */
+  top: 56px;
+  /* Under navbar */
   right: 0;
   background-color: rgb(240, 240, 240);
-  overflow-x: hidden; /* Disable horizontal scroll */
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
   padding: 10px;
-  transition: 0.5s; /* Funkar bara om man ändrar på width mellan 0 och 300? */
+  transition: 0.5s;
+  /* Funkar bara om man ändrar på width mellan 0 och 300? */
   border: solid 1px grey;
   border-radius: 5px;
 }
@@ -127,8 +130,10 @@ body {
 .checkout-container {
   margin: 0 80px;
   position: relative;
-  top: 56px; /*under navbar*/
-  margin-bottom: 137px; /*push footer down*/
+  top: 56px;
+  /*under navbar*/
+  margin-bottom: 137px;
+  /*push footer down*/
 }
 
 .checkout-header {
@@ -161,12 +166,14 @@ body {
 
   /*push footer down*/
 }
+
 .detail-container .info-fix {
   padding-bottom: 100px;
   /* margin-bottom: 100px; */
   /* position: absolute;
   min-height: 100%; */
 }
+
 .detail-card {
   position: absolute;
   min-height: 100vh;
@@ -181,6 +188,7 @@ body {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
 }
+
 .backdrop .modal {
   display: flex;
   flex-direction: column;
@@ -197,6 +205,7 @@ body {
   background-color: #fff;
   font-family: "Poppins", sans-serif;
 }
+
 .modal-close {
   position: absolute;
   right: 0;
@@ -218,10 +227,12 @@ body {
   font-size: 14px;
   transition: all 0.2s ease-in-out;
 }
+
 button:hover,
 .modal-close :hover:hover {
   transform: scale(1.1);
 }
+
 .footer {
   width: 100vw;
   display: flex;
@@ -235,26 +246,42 @@ button:hover,
   width: 100%;
   font-family: "Poppins", sans-serif;
 }
+
 .wrapper-container {
   padding-bottom: 100px;
   padding-top: 40px;
 }
+
 .header-color {
   background-color: rgb(224, 208, 208);
 }
+
 .cart-ui {
   font-size: 30px;
   cursor: pointer;
 }
+
 .cart-empty {
   margin-top: 100px;
   text-align: center;
   color: rgb(3, 97, 19);
 }
+
 .cartpage-title {
   text-align: center;
   text-decoration: underline;
 }
+
 .input-order-name {
   margin-left: 5px;
+}
+
+
+
+.validCupon {
+  color: green;
+}
+
+.unValidCupon {
+  color: red;
 }

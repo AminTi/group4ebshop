@@ -85,6 +85,7 @@
   min-width: 100%;
   min-height: 100%;
 }
+
 /* .backdrop {
   position: fixed;
   top: 0;
@@ -144,11 +145,3 @@ button:hover,
   position: absolute;
   bottom: 0;
 } */
-
-.validCupon {
-  color: green;
-}
-
-.unValidCupon {
-  color: red;
-}

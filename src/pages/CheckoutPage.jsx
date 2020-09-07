@@ -37,14 +37,11 @@ function CheckoutPage() {
 
     const discountCounter = () => {
         setNaN(productTotalPrice)
-        console.log(NotANumber)
         const discountprice = discountCupon && discountCupon.discount
-        console.log(discountprice)
-        if (
-            inputValue === "BLACKFRIDAY" ||
-            inputValue === "SUMMER19" ||
-            inputValue === "BLACKFRIDAY2019"
-        ) {
+
+        console.log(discountCupon)
+
+        if (discountprice) {
             const disTotal = NotANumber * discountprice
             return disTotal
         } else {
@@ -53,13 +50,19 @@ function CheckoutPage() {
         }
     }
 
-    const ErrorCheck = () => {
+    const ErrorCheck = (discountCupon) => {
         if (
             inputValue === "BLACKFRIDAY" ||
             inputValue === "SUMMER19" ||
             inputValue === "BLACKFRIDAY2019"
         ) {
             return (apiKey.current.disabled = true)
+        }
+    }
+
+    const Check = () => {
+        if (discountCupon == null) {
+            return <span className="unValidCupon"> Invalid Coupon code</span>
         }
     }
 
@@ -95,8 +98,9 @@ function CheckoutPage() {
             {ErrorCheck() && (
                 <span className="validCupon"> Discount applied </span>
             )}
+            {Check()}
 
-            {discountCupon == null && <span> Invalid Coupon code</span>}
+            {/* {discountCupon == null && <span> Invalid Coupon code</span>} */}
             <button
                 className="button-discount btn btn-primary btn-sm"
                 onClick={discountValues}>
