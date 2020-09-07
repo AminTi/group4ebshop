@@ -13,10 +13,10 @@ export default function Layout({ children }) {
       return (
         <>
           <span onClick={() => toggleCart(true)}>
-            <FiShoppingCart />
+            <FiShoppingCart className="cart-ui" />
             {`(${itemCount})`}
           </span>
-          <CartPage />
+          <CartPage toggle={showCart} />
         </>
       );
     }
@@ -26,7 +26,7 @@ export default function Layout({ children }) {
     if (!showCart) {
       return (
         <span onClick={() => toggleCart(false)}>
-          <FiShoppingCart />
+          <FiShoppingCart className="cart-ui" />
           {`(${itemCount})`}
         </span>
       );
@@ -35,22 +35,22 @@ export default function Layout({ children }) {
 
   return (
     <div>
-      <header className="header navbar fixed-top navbar-light bg-light mb-4">
+      <header className="header navbar fixed-top navbar-light  mb-4 header-color">
         <Link
           onClick={(showCart) => toggleCart(showCart)}
           //onClick={showCart && toggleCart(showCart)}
           className="header-home link navbar-brand"
           to="/"
         >
-          Home
+          <h4>Home</h4>
         </Link>
         {renderShowCart()}
         {renderCart()}
       </header>
       {children}
-      <footer className="bg-light footer">
-        <h5>Room4Shop</h5>
-        <p>Project Assignment for Javascript 3, React</p>
+      <footer className="footer">
+        <div>Room4Shop</div>
+        <div>Project Assignment for Javascript 3, React</div>
       </footer>
     </div>
   );

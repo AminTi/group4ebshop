@@ -15,20 +15,21 @@ function Order({
 }) {
   const [date] = useState(moment().format("LLL"));
   const postOrder = (discountPrice, cartItems) => {
-    axios
-      .post(
-        "https://mock-data-api.firebaseio.com/e-commerce/orders/group4.json",
-        {
-          post_by: userInput,
-          totalPrice: discountPrice,
-          productList: cartItems,
-          created_at: date,
-        }
-      )
-      .then(function (response) {
-        console.log(response);
-        setDiscountPrice(0);
-      });
+    cartItems.length &&
+      axios
+        .post(
+          "https://mock-data-api.firebaseio.com/e-commerce/orders/group4.json",
+          {
+            post_by: userInput,
+            totalPrice: discountPrice,
+            productList: cartItems,
+            created_at: date,
+          }
+        )
+        .then(function (response) {
+          console.log(response);
+          setDiscountPrice(0);
+        });
   };
 
   useEffect(() => {
@@ -47,7 +48,7 @@ function Order({
         <button className="modal-conten" onClick={() => history.push("/")}>
           Buy More
         </button>
-      </div>
+      </div>{" "}
     </div>
   );
 }
