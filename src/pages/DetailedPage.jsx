@@ -1,5 +1,4 @@
 import React from "react";
-// import ProductDetailed from "../components/ProductDetailed";
 import FetchDataDescribed from "../components/FetchDataDescribed";
 
 export default function DetailedPage(props) {
