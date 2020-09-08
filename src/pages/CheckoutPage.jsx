@@ -35,11 +35,9 @@ function CheckoutPage() {
         setDiscountPrice(discountCounter())
     }, [discountCupon])
 
+    const discountprice = discountCupon && discountCupon.discount
     const discountCounter = () => {
         setNaN(productTotalPrice)
-        const discountprice = discountCupon && discountCupon.discount
-
-        console.log(discountCupon)
 
         if (discountprice) {
             const disTotal = NotANumber * discountprice
@@ -50,12 +48,8 @@ function CheckoutPage() {
         }
     }
 
-    const ErrorCheck = (discountCupon) => {
-        if (
-            inputValue === "BLACKFRIDAY" ||
-            inputValue === "SUMMER19" ||
-            inputValue === "BLACKFRIDAY2019"
-        ) {
+    const ErrorCheck = () => {
+        if (discountCupon && discountCupon.discount) {
             return (apiKey.current.disabled = true)
         }
     }
