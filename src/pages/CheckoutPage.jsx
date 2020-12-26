@@ -93,8 +93,6 @@ function CheckoutPage() {
                 <span className="validCupon"> Discount applied </span>
             )}
             {Check()}
-
-            {/* {discountCupon == null && <span> Invalid Coupon code</span>} */}
             <button
                 className="button-discount btn btn-primary btn-sm"
                 onClick={discountValues}>
