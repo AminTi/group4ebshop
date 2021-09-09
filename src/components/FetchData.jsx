@@ -6,9 +6,6 @@ import ProductDetailed from "./ProductDetailed";
 const FetchData = () => {
   const [data, setData] = useState({});
 
-
-
-
   const DataHandler = () => {
     axios
       .get("https://mock-data-api.firebaseio.com/e-commerce/products.json")
@@ -22,16 +19,15 @@ const FetchData = () => {
     DataHandler();
   }, []);
 
-//test
+  //test
   return (
     <div className="main-container row mx-5 wrapper-container">
       {Object.entries(data).map((item) => {
         return <ProductList key={item[0]} {...item[1]} />;
-
       })}
- 
-      <buttton onClick={ClickHandler}></buttton>
-  
+
+      {/* <buttton onClick={ClickHandler}></buttton> */}
+      <buttton></buttton>
     </div>
   );
 };

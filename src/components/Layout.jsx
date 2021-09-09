@@ -49,8 +49,8 @@ export default function Layout({ children }) {
       </header>
       {children}
       <footer className="footer">
-        <div>Room4Shop</div>
-        <div>Project Assignment for Javascript 3, React</div>
+        <div>Simple WebShop</div>
+        <div>Basic Webshop</div>
       </footer>
     </div>
   );
