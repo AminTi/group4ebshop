@@ -62,11 +62,11 @@ const ProductList = ({
           <p className="card-text">{descriptionShort}...</p>
         </div>
         <div className="card-footer">
-          <Link to={`/product/${id}`}>
+          {/* <Link to={`/product/${id}`}>
             <button className="btn btn-outline-primary btn-sm mr-2">
               Info
             </button>
-          </Link>
+          </Link> */}
 
           {!isInCart(cartProduct, cartItems) ? (
             <button
